@@ -5,7 +5,7 @@ from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from douban.items import DoubanItem
 class doubanspider(CrawlSpider):
     name='douban'
-    download_delay=0.5
+    
     allowed_domains=['movie.douban.com']
     start_urls=['http://movie.douban.com/top250']
     rules = [
@@ -13,7 +13,7 @@ class doubanspider(CrawlSpider):
          Rule(SgmlLinkExtractor(allow=(r'http://movie.douban.com/subject/\d+'),
                                ),
              callback='parse_item',
-             follow=True)
+             )
     ]
 
     def parse_item(self,response):
