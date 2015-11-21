@@ -30,7 +30,7 @@ NEWSPIDER_MODULE = 'byr.spiders'
 #CONCURRENT_REQUESTS_PER_IP=16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED=False
+COOKIES_ENABLED=False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED=False
@@ -50,7 +50,8 @@ NEWSPIDER_MODULE = 'byr.spiders'
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'byr.middlewares.MyCustomDownloaderMiddleware': 543,
+    #'byr.middlewares.MyCustomDownloaderMiddleware':None,
+    #'byr.spiders.useragent.user_agent':400,
 #}
 
 # Enable or disable extensions
@@ -61,9 +62,9 @@ NEWSPIDER_MODULE = 'byr.spiders'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'byr.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'byr.pipelines.ByrPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
